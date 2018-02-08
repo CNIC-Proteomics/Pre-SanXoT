@@ -1,0 +1,97 @@
+################################################################################################################
+
+# Params to i-Ratio
+
+################################################################################################################
+
+# Delta Mass Threshold in ppm
+
+deltaMassThreshold = 10
+
+# Delta Mass Areas, number of jumps: 1, 3 or 5
+
+deltaMassAreas = 5
+
+################################################################################################################
+
+# Params to Pre-SanXoT
+
+################################################################################################################
+
+# Write the name of the Experiments Name to be analyzed
+
+Expto=c("pratio_FractionsSeparated")
+
+# Pattern of folders that contains the MSFs
+
+Patern=c("Fr_*")
+
+# Channels used in the Experiments
+
+ChannelID=c(1:10)
+
+# Type of label used
+
+Typeoflabel=c("TMT")
+
+# Tags Used in the Experiment (All is "ALL")
+
+TagsUsed=c("ALL")
+
+# Control Tag
+
+ControlTag=c("131")
+
+# Mean Tag Calculation
+
+MeanCalculation=c("TRUE")
+
+# Mean Tags
+
+MeanTags=c("130_C","131","129_C","129_N")
+
+# First Tag
+
+FirstTag=c("126")
+
+# Search Engine
+
+SearchEngine=c("2")
+
+# Daemon used (TRUE or FALSE)
+
+Daemon=c("TRUE")
+
+# Number of comparatives within the Experiment
+
+Comparatives=c("10")
+
+# To Absolute Quantification (TRUE = Absolute Quantification, FALSE = Relative Quantification or BOTH = Both)
+
+Absolute=c("BOTH")
+
+################################################################################################################
+
+# Params to Tag File Maker
+
+################################################################################################################
+
+# When you have only ONE integration Samples to Integrate (Expto_Tag)
+
+Integration<-c("SPIROS_128_N","SPIROS_128_C","SPIROS_129_N")
+
+# Number of Integrations
+
+NOI=c("3")
+
+# Integration Names and Tags Used
+
+Control<-c("126","127_N","127_C")
+
+CR2<-c("128_N","128_C","129_N")
+
+CR7<-c("129_C","130_N","130_C")
+
+Integrations<-c("Control", "CR2", "CR7")
+
+################################################################################################################
