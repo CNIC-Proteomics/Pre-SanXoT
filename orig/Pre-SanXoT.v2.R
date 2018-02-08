@@ -1,6 +1,6 @@
 (WD <- getwd())
 # begin: jmrc
-WD <- "D:/projects/Pre-SanXoT/orig"
+#WD <- "D:/projects/Pre-SanXoT/orig"
 # end: jmrc
 if (!is.null(WD)) setwd(WD)
 
@@ -81,7 +81,15 @@ for (i in files) {
     
     i <- substr(i, 1, nchar(i) - 4)
     
+    # BEGIN: jmrc
+    dir.create(paste(WD,"/",j,"/Pre-SanXoT/",sep=""), showWarnings = FALSE)
+    # END: jmrc
+    
     write.csv(data, file=paste(WD,"/",j,"/Pre-SanXoT/",i,".csv",sep=""),row.names=FALSE)}}}
+
+#################################
+# CREATE Q files -------------- #
+#################################
 
 for (j in Expto){
 
@@ -230,6 +238,10 @@ if (Typeoflabel=="TMT"){
         colnames_iTRAQ=append(colnames_iTRAQ, TagsUsed)}}
     
 write.table(q_all, file = paste(WD,"/",j,"/Pre-SanXoT/Q-all.xls",sep=""), sep=",", row.names = FALSE)}}
+
+#################################
+# CREATE ID files -------------- #
+#################################
 
 for (j in Expto){
     
@@ -495,7 +507,11 @@ if (length(Expto)<2) {
               
           all$newcolumn <- apply(all[,c(i,ControlIndex)], 1, max)
               
-          colnames(all)[ncol(all)] <- paste0("Vs_",l,"_",ControlTag)}}}}}
+          colnames(all)[ncol(all)] <- paste0("Vs_",l,"_",ControlTag)}}}}
+  # begin: jmrc
+  write.table(all, file = paste(WD,"/",j,"/Pre-SanXoT/ID-q.txt",sep=""), sep="\t", row.names = FALSE)
+  # end: jmrc
+}
   
   if (Random == "YES"){
     
@@ -516,7 +532,9 @@ if (length(Expto)<2) {
         colnames(all)[ncol(all)] <- paste0("Vs_",l,"_",o)}}}
   
     
+# begin: jmrc
 # write.table(all, file = paste(WD,"/",j,"/Pre-SanXoT/ID-q.txt",sep=""), sep="\t", row.names = FALSE)
+# end: jmrc
 
 ################################################################################################################
 
