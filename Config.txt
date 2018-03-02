@@ -70,6 +70,10 @@ Comparatives=c("10")
 
 Absolute=c("BOTH")
 
+# Calculate all against all tags
+
+Random=c("YES")
+
 ################################################################################################################
 
 # Params to Tag File Maker
