@@ -1,35 +1,43 @@
 (WD <- getwd())
 # begin: jmrc
-# WD <- "D:/data/PESA_omicas/Comet-PTM-2a-5ta_Cohortes_V1/6a_Cohorte_70_Female_V1_V2/TMT_Fraccionamiento"
+WD <- "D:/data/PESA_omicas/Comet-PTM-2a-5ta_Cohortes_V1/6a_Cohorte_70_Female_V1_V2/TMT_Fraccionamiento"
 # end: jmrc
 if (!is.null(WD)) setwd(WD)
 
 source(paste0(WD,"/Config.txt"))
 
+INFO <- "
+##############
+# Pre-SanXot
+#
+# version: 1.06
+# developed by: Fernando García Marqués
+# maintened by: Jose Manuel Rodriguez <jmrodriguezc@cnic.es>
+##############
+"
+library("RSQLite")
+
+# write info version file
+for (j in Expto){
+  write(INFO, file=paste(WD,"/",j,"/Pre-SanXoT/info.txt",sep=""))
+}
 
 
-################################################################################################################
-
-# Pre-SanXoT
-
-################################################################################################################
-
+# function to get the directories
 list.dirs <- function(path=".", pattern=NULL, all.dirs=FALSE,
                       full.names=FALSE, ignore.case=FALSE) {
-    # use full.names=TRUE to pass to file.info
-    all <- list.files(path, pattern, all.dirs,
-                      full.names=TRUE, recursive=FALSE, ignore.case)
-    dirs <- all[file.info(all)$isdir]
-    # determine whether to return full names or just dir names
-    if(isTRUE(full.names))
-        return(dirs)
-    else
-        return(basename(dirs))
+  # use full.names=TRUE to pass to file.info
+  all <- list.files(path, pattern, all.dirs,
+                    full.names=TRUE, recursive=FALSE, ignore.case)
+  dirs <- all[file.info(all)$isdir]
+  # determine whether to return full names or just dir names
+  if(isTRUE(full.names))
+    return(dirs)
+  else
+    return(basename(dirs))
 }
 
 MSFfolders <- list.dirs(path = paste0(WD,"/",Expto,"/MSF"), pattern=Patern)
-
-library("RSQLite")
 
 for (j in Expto){
     
