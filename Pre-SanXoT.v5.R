@@ -199,7 +199,11 @@ if (length(Expto)<2) {
             
             q_all<-c
             
-        } else {q_all<-merge(q_all,c)}}
+        # begin: jmrc: bind the values. Even the empty (NA) values
+        #} else {q_all<-merge(q_all,c)}}
+        } else {q_all<-merge(q_all,c, all = TRUE)}}
+        # end: jmrc
+    
 
 if (Typeoflabel=="TMT"){
     
