@@ -37,9 +37,10 @@ list.dirs <- function(path=".", pattern=NULL, all.dirs=FALSE,
     return(basename(dirs))
 }
 
-MSFfolders <- list.dirs(path = paste0(WD,"/",Expto,"/MSF"), pattern=Patern)
 
 for (j in Expto){
+  
+    MSFfolders <- list.dirs(path = paste0(WD,"/",j,"/MSF"), pattern=Patern)
     
     for (k in MSFfolders){
 
